@@ -7,17 +7,5 @@ LIB = kernel32 user32 gdi32 winspool comdlg32 \
 	
 TARGETS = keyboard paint 
 
-all : paint keyboard
-
-main :
+ex01 :
 	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -o $@
-
-tetris :
-	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -o $@
-	
-paint : 
-	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -o $@
-	
-keyboard : 
-	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -o $@
-		
