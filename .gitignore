@@ -1,4 +1,10 @@
-doc/
+*.docx
+*.exe
+*.wav
+*.mp3
+*.mid
+*~
+pub/
 
 #################
 ## Visual Studio
