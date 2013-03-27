@@ -1,3 +1,12 @@
+//---------------------------------------------------
+//	Demo code to illustrate the basic usage of ACLLib
+//	For students' Lab at Zhejiang University
+//	Created 	2008 by Gao Yuan
+//	Modified 	2009 by Cui Liwei
+//				2010 by Lan Huidong
+//	Revised		2012 by Li Rui
+//---------------------------------------------------
+
 #include "acllib.h"
 
 #include <stdlib.h>

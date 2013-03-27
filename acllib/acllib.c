@@ -1,6 +1,11 @@
 ////////////////////////////////////////////////////////////////
 //  ACLLib - Advanced C Lab Library
 //    2013-03
+//	For students' Lab at Zhejiang University
+//	Created 	2008 by Gao Yuan
+//	Modified 	2009 by Cui Liwei
+//				2010 by Lan Huidong
+//	Revised		2012 by Li Rui
 ////////////////////////////////////////////////////////////////
 
 #define _CRT_SECURE_NO_WARNINGS
