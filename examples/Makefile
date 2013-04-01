@@ -1,11 +1,6 @@
 SRC = ..\acllib\acllib.c
 INCLUDE_DIR = ..\acllib
-INCLUDE = $(INCLUDE_DIR)\acllib.h
-LIB = kernel32 user32 gdi32 winspool comdlg32 \
-	advapi32 shell32 ole32 oleaut32 uuid \
-	odbc32 odbccp32 winmm msimg32
-	
-TARGETS = keyboard paint 
+LIB = gdi32 ole32 oleaut32 uuid winmm msimg32
 
 ex01 :
-	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -o $@
+	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -DWINVER=0x0501 -o $@ 

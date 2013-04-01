@@ -27,7 +27,7 @@
 #include <olectl.h>
 #include <OCIdl.h>
 #include <stdio.h>
-#include <Digitalv.h>
+//#include <Digitalv.h>
 #include <tchar.h>
 
 #ifdef _MSC_VER

@@ -1,5 +1,8 @@
 #include "acllib.h"
 
+#include <string.h>
+#include <stdio.h>
+
 int Setup()
 {
     initWindow("Title",DEFAULT,DEFAULT,640,480);
