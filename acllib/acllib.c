@@ -10,6 +10,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #define _CRT_NON_CONFORMING_SWPRINTFS
+
 #define CINTERFACE
 
 #ifdef _UNICODE
@@ -22,13 +23,8 @@
 #include "acllib.h"
 
 #include <windows.h>
-#include <math.h>
-#include <mmsystem.h>
 #include <olectl.h>
-#include <OCIdl.h>
 #include <stdio.h>
-//#include <Digitalv.h>
-#include <tchar.h>
 
 #ifdef _MSC_VER
 #pragma comment(lib,"winmm.lib")
@@ -46,7 +42,7 @@
 #define ACL_ASSERT_BEGIN_PAINT ACL_ASSERT(g_hmemdc!=0, \
 	"You should call function \"beginPaint()\" befor use function \"" __FUNCTION__ "\"" )
 
-// 
+// f
 int Setup(void);
 
 const char g_wndClassName[] = "ACL_WND_CLASS";
@@ -109,7 +105,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	g_mouse = NULL;
 	g_timer = NULL;
 
-	wndclass.style         = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
+	wndclass.style         = CS_HREDRAW | CS_VREDRAW | CS_OWNDC | CS_DBLCLKS;
 	wndclass.lpfnWndProc   = WndProc;
 	wndclass.cbClsExtra    = 0;
 	wndclass.cbWndExtra    = 0;
@@ -190,7 +186,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		}
 	case WM_CHAR:
 		if (g_char != NULL)
-			g_char((int) wParam);
+			g_char((char) wParam);
 		break;
 
 	case WM_KEYDOWN:
@@ -282,7 +278,7 @@ void initWindow(const char *wndName, int x, int y, int width, int height)
 {
 	RECT rect;
 
-	ACL_ASSERT(!g_hWnd,"Inited...");
+	ACL_ASSERT(!g_hWnd,"Don't call initWindow twice");
 
 	g_wndHeight = height;
 	g_wndWidth = width;
@@ -309,6 +305,12 @@ void initWindow(const char *wndName, int x, int y, int width, int height)
 
 	ShowWindow (g_hWnd,1);
 	UpdateWindow (g_hWnd);
+}
+
+void msgBox(const char title[],const char text[],int flag)
+{
+	ACL_ASSERT_HWND;
+	MessageBoxA(g_hWnd,text,title,flag);
 }
 
 //
@@ -518,13 +520,13 @@ void paintText(int x, int y, const char *textstring)
 	TextOutA(g_hmemdc, x, y, textstring, strlen(textstring));
 }
 
-void putpixel(int x, int y, ACL_Color color)
+void putPixel(int x, int y, ACL_Color color)
 {
 	ACL_ASSERT_BEGIN_PAINT;
 	SetPixel(g_hmemdc, x, y, color);	
 }
 
-ACL_Color getpixel(int x, int y)
+ACL_Color getPixel(int x, int y)
 {
 	ACL_ASSERT_BEGIN_PAINT;
 	return GetPixel(g_hmemdc, x, y);
@@ -652,12 +654,6 @@ void roundrect(int left,int top,int right,int bottom,int width,int height)
 	RoundRect(g_hmemdc,left,top,right,bottom,width,height);
 }
 
-
-
-
-
-
-
 void polyline(POINT *apt,int cpt)
 {
 	ACL_ASSERT_BEGIN_PAINT;
@@ -682,6 +678,7 @@ void putImageScale(ACL_Image *pImage,int x,int y,int width,int height)
 	SelectObject(hbitmapdc, pImage->hbitmap);
 	if(width == -1)width = pImage->width;
 	if(height == -1)height = pImage->height;
+	SetStretchBltMode(g_hmemdc,COLORONCOLOR);
 	StretchBlt( g_hmemdc,x,y,width,height,hbitmapdc,0,0,pImage->width,pImage->height,SRCCOPY);
 	DeleteDC(hbitmapdc);
 }
@@ -694,6 +691,7 @@ void putImageTransparent(ACL_Image *pImage,int x,int y,int width,int height, ACL
 	SelectObject(hbitmapdc, pImage->hbitmap);
 	if(width == -1)width = pImage->width;
 	if(height == -1)height = pImage->height;
+	//SetStretchBltMode(g_hmemdc,COLORONCOLOR);
 	TransparentBlt(g_hmemdc,x,y,width,height,hbitmapdc,0,0,pImage->width,pImage->height,bkColor);
 	DeleteDC(hbitmapdc);
 }

@@ -85,11 +85,18 @@ typedef struct
 	int height;
 } ACL_Image;
 
+//typedef enum
+//{
+//	TM_NO = 0x00,
+//	TM_COLOR = 0x01,
+//	TM_ALPHA = 0x02
+//} ACL_TransparentMode;
+
 typedef COLORREF ACL_Color;
 typedef int ACL_Sound;
 
 typedef void (*KeyboardEventCallback) (int key,int event);
-typedef void (*CharEventCallback) (int key);
+typedef void (*CharEventCallback) (char c);
 typedef void (*MouseEventCallback) (int x, int y, int button, int event);
 typedef void (*TimerEventCallback) (int timerID);
 
@@ -97,6 +104,7 @@ typedef void (*TimerEventCallback) (int timerID);
 int Setup();
 
 void initWindow(const char title[], int left, int top, int width, int height);
+void msgBox(const char title[],const char text[],int flag);
 
 void registerKeyboardEvent(KeyboardEventCallback callback);
 void registerCharEvent(CharEventCallback callback);
@@ -173,8 +181,16 @@ void roundrect(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, \
 // Image
 void loadImage(const char *pImageFileName, ACL_Image *pImage);
 void freeImage(ACL_Image *pImage);
+
 void putImage(ACL_Image *pImage, int x, int y);
 void putImageScale(ACL_Image *pImage,int x,int y,int width,int height);
 void putImageTransparent(ACL_Image *pImage,int x,int y,int width,int height,ACL_Color bkColor);
+
+//void putImageEx(ACL_Image *pImage,int dx,int dy,int dw,int dh, \
+//	int sx,int sy,int sw,int sh);
+
+//void setTransparentMode(ACL_TransparenetMode);
+//void setTransparentColor(ACL_Color);
+//void setTransparetnAlpha(int alpha);
 
 #endif
