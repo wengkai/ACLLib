@@ -2,7 +2,7 @@ SRC = ..\acllib\acllib.c
 INCLUDE_DIR = ..\acllib
 LIB = gdi32 ole32 oleaut32 uuid winmm msimg32
 
-all : keyboard mouse_move mouse_click timer clock char 
+all : keyboard mouse_move mouse_click image clock char 
 
 keyboard :
 	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -DWINVER=0x0501 -o $@
@@ -13,7 +13,7 @@ mouse_move :
 mouse_click :
 	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -DWINVER=0x0501 -o $@
 
-timer :
+image :
 	gcc $(SRC) $@.c -I$(INCLUDE_DIR) $(LIB:%=-l%) -DWINVER=0x0501 -o $@
 	
 clock :
