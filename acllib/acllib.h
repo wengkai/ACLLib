@@ -23,6 +23,19 @@
 //  Modified  2014 by Weng Kai for MOOC
 ////////////////////////////////////////////////////////////////
 
+/*
+For Dev C++, these lib files need to be added into linker options. 
+Be sure to change the leading folders as your installation.
+"C:/Program Files/Dev-Cpp/MinGW32/lib/libwinmm.a"
+"C:/Program Files/Dev-Cpp/MinGW32/lib/libmsimg32.a"
+"C:/Program Files/Dev-Cpp/MinGW32/lib/libkernel32.a"
+"C:/Program Files/Dev-Cpp/MinGW32/lib/libuser32.a"
+"C:/Program Files/Dev-Cpp/MinGW32/lib/libgdi32.a"
+"C:/Program Files/Dev-Cpp/MinGW32/lib/libole32.a"
+"C:/Program Files/Dev-Cpp/MinGW32/lib/liboleaut32.a"
+"C:/Program Files/Dev-Cpp/MinGW32/lib/libuuid.a" 
+*/
+ 
 #ifndef __ACLLIB_H__
 #define __ACLLIB_H__
 

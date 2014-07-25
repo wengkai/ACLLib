@@ -683,7 +683,7 @@ void polyline(POINT *apt,int cpt)
 	Polyline(g_hmemdc,apt,cpt);
 }
 
-/*
+
 void putImage(ACL_Image *pImage, int x, int y)
 {
 	HDC hbitmapdc;
@@ -773,7 +773,7 @@ void freeImage(ACL_Image *mapbuf)
 	DeleteObject(mapbuf->hbitmap);
 	mapbuf->hbitmap = NULL;
 }
-*/
+
 void registerKeyboardEvent(KeyboardEventCallback callback)
 {
 	g_keyboard = callback;
