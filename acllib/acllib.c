@@ -1,11 +1,26 @@
+/*
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 ////////////////////////////////////////////////////////////////
 //  ACLLib - Advanced C Lab Library
-//    2013-03
-//	For students' Lab at Zhejiang University
+//    Ver. 2014-07
+//	For Students' Lab at Zhejiang University
 //	Created 	2008 by Gao Yuan
 //	Modified 	2009 by Cui Liwei
-//				2010 by Lan Huidong
+//				    2010 by Lan Huidong
 //	Revised		2012 by Li Rui
+//  Modified  2014 by Weng Kai for MOOC
 ////////////////////////////////////////////////////////////////
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -307,11 +322,19 @@ void initWindow(const char *wndName, int x, int y, int width, int height)
 	UpdateWindow (g_hWnd);
 }
 
+void initConsole(void)
+{
+    AllocConsole();
+    freopen("CONIN$", "r+t", stdin);
+    freopen("CONOUT$", "w+t", stdout);
+}
+
 void msgBox(const char title[],const char text[],int flag)
 {
 	ACL_ASSERT_HWND;
 	MessageBoxA(g_hWnd,text,title,flag);
 }
+
 
 //
 void updatePen();
@@ -660,6 +683,7 @@ void polyline(POINT *apt,int cpt)
 	Polyline(g_hmemdc,apt,cpt);
 }
 
+/*
 void putImage(ACL_Image *pImage, int x, int y)
 {
 	HDC hbitmapdc;
@@ -749,7 +773,7 @@ void freeImage(ACL_Image *mapbuf)
 	DeleteObject(mapbuf->hbitmap);
 	mapbuf->hbitmap = NULL;
 }
-
+*/
 void registerKeyboardEvent(KeyboardEventCallback callback)
 {
 	g_keyboard = callback;
@@ -834,3 +858,5 @@ void hideCaret()
 {
 	HideCaret(g_hWnd);
 }
+
+

@@ -1,11 +1,26 @@
+/*
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 ////////////////////////////////////////////////////////////////
 //  ACLLib - Advanced C Lab Library
-//    2013-03
+//    Ver 2014-07
 //	For students' Lab at Zhejiang University
 //	Created 	2008 by Gao Yuan
 //	Modified 	2009 by Cui Liwei
-//				2010 by Lan Huidong
+//				    2010 by Lan Huidong
 //	Revised		2012 by Li Rui
+//  Modified  2014 by Weng Kai for MOOC
 ////////////////////////////////////////////////////////////////
 
 #ifndef __ACLLIB_H__
@@ -192,5 +207,7 @@ void putImageTransparent(ACL_Image *pImage,int x,int y,int width,int height,ACL_
 //void setTransparentMode(ACL_TransparenetMode);
 //void setTransparentColor(ACL_Color);
 //void setTransparetnAlpha(int alpha);
+
+void initConsole(void);
 
 #endif
