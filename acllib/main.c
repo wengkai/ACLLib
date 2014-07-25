@@ -5,12 +5,12 @@ int Setup()
 {
 	initWindow("Test",DEFAULT,DEFAULT,800,600);
 	
-  initConsole();
-  printf("Hello\n");
+  	initConsole();
+  	printf("Hello\n");
   
 	beginPaint();
 
-	putPixel(10,10,RED);
+	line(10,10,100,100);
 
 	endPaint();
 	
