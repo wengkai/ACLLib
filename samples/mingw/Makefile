@@ -1,5 +1,5 @@
-SRC = ..\acllib\acllib.c
-INCLUDE_DIR = ..\acllib
+SRC = ..\..\src\acllib.c
+INCLUDE_DIR = ..\..\src
 LIB = gdi32 ole32 oleaut32 uuid winmm msimg32
 
 all : keyboard mouse_move mouse_click image clock char 
