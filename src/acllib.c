@@ -810,10 +810,12 @@ void loadSound(const char *fileName,ACL_Sound *pSound)
 	int len = strlen(fileName)*sizeof(char);
 	len +=64;
 	cmdStr = (char*)malloc(len);
-	sprintf(cmdStr,"open \"%s\" type mpegvideo alias S%d",fileName,g_soundID);
-	*pSound = g_soundID;
-	++g_soundID;
-	mciSendStringA(cmdStr,NULL,0,NULL);
+	if (cmdStr != NULL) {
+		sprintf(cmdStr,"open \"%s\" type mpegvideo alias S%d",fileName,g_soundID);
+		*pSound = g_soundID;
+		++g_soundID;
+		mciSendStringA(cmdStr,NULL,0,NULL);
+	}
 	free(cmdStr);
 }
 
