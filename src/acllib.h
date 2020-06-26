@@ -137,8 +137,9 @@ extern "C" {
 
 	// 
 	void initWindow(const char title[], int left, int top, int width, int height);
+	void closeWindow(void);
 	void msgBox(const char title[], const char text[], int flag);
-
+	
 	void registerKeyboardEvent(KeyboardEventCallback callback);
 	void registerCharEvent(CharEventCallback callback);
 	void registerMouseEvent(MouseEventCallback callback);

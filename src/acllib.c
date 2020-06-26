@@ -82,7 +82,7 @@ ACL_Color g_brushColor = BLACK;
 int g_brushStyle = BRUSH_STYLE_SOLID;
 
 HFONT g_font = NULL;
-char g_fontName[256] = "ËÎÌו";
+char g_fontName[256] = "test-bug";
 int g_textSize = 12;
 ACL_Color g_textColor = BLACK;
 ACL_Color g_textBkColor = WHITE;
@@ -320,6 +320,11 @@ void initWindow(const char *wndName, int x, int y, int width, int height)
 
 	ShowWindow (g_hWnd,1);
 	UpdateWindow (g_hWnd);
+}
+
+void closeWindow()
+{
+	DestroyWindow(g_hWnd);
 }
 
 void initConsole(void)
