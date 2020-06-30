@@ -279,6 +279,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 
 	case WM_DESTROY:
+		g_close();
 		DeleteObject(g_hbitmap);
 		PostQuitMessage(0);
 		break;
@@ -807,6 +808,11 @@ void startTimer(int id,int timeinterval)
 void cancelTimer(int id)
 {
 	KillTimer(g_hWnd, id);
+}
+
+void registerCloseEvent(CloseEventCallback callback)
+{
+	g_close = callback;
 }
 
 void loadSound(const char *fileName,ACL_Sound *pSound)

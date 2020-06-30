@@ -128,6 +128,7 @@ typedef void(*KeyboardEventCallback) (int key, int event);
 typedef void(*CharEventCallback) (char c);
 typedef void(*MouseEventCallback) (int x, int y, int button, int event);
 typedef void(*TimerEventCallback) (int timerID);
+typedef void(*CloseEventCallback)();
 
 #ifdef __cplusplus
 extern "C" {
@@ -147,6 +148,8 @@ extern "C" {
 
 	void startTimer(int timerID, int timeinterval);
 	void cancelTimer(int timerID);
+	
+	void registerCloseEvent(CloseEventCallback callback);
 
 	// Sound
 	void loadSound(const char *fileName, ACL_Sound *pSound);
