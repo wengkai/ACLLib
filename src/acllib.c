@@ -98,6 +98,7 @@ KeyboardEventCallback g_keyboard = NULL;
 MouseEventCallback g_mouse = NULL;
 TimerEventCallback g_timer = NULL;
 CharEventCallback g_char = NULL;
+CloseEventCallback g_close = NULL;
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
